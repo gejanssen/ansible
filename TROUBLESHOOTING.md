@@ -1,24 +1,29 @@
-# Alias setting for ssh ask-pass
+# Troubleshooting
+
+## Alias setting for ssh ask-pass
 Add the following to your .bashrc file.
-# ssh agent
+
+## ssh agent
+```
 alias ssha='eval $(ssh-agent) && ssh-add'
+```
 
 
-
-# When ansible gives a timeout on a connection during sudo 
+## When ansible gives a timeout on a connection during sudo 
 
 Ansible gives the following error during a --become session
 "msg": "Task failed: Timeout (12s) waiting for privilege escalation prompt:"
 
 This is caused by the new behaviour of sudo in ubuntu 26.04 and up.
 This can be avoided by setting an extra parameter
-
+```
 export ANSIBLE_BECOME_EXE=sudo.ws
+```
 
 Example:
 
 
-
+```
 gej@aten:~/ansible$ ansible all -m apt -a update_cache=true --become --ask-become-pass
 BECOME password: 
 [ERROR]: Task failed: Timeout (12s) waiting for privilege escalation prompt:
@@ -79,17 +84,18 @@ usc.fritz.box | CHANGED => {
     "changed": true
 }
 gej@aten:~/ansible$ 
+```
 
 Bugreport:
 https://github.com/ansible/ansible/issues/85837
 
-# error message: Depreciation warning inject_facts_as_vars
+## error message: Depreciation warning inject_facts_as_vars
 change
----
+```
 when: ansible_distribution == "Ubuntu"
----
+```
 to
----
+```
 when: ansible_facts["distribution"] == "Ubuntu"
----
+```
 
