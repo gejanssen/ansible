@@ -82,3 +82,14 @@ gej@aten:~/ansible$
 
 Bugreport:
 https://github.com/ansible/ansible/issues/85837
+
+# error message: Depreciation warning inject_facts_as_vars
+change
+---
+when: ansible_distribution == "Ubuntu"
+---
+to
+---
+when: ansible_facts["distribution"] == "Ubuntu"
+---
+
