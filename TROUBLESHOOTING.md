@@ -3,8 +3,8 @@
 ## Alias setting for ssh ask-pass
 Add the following to your .bashrc file.
 
-## ssh agent
 ```
+# ssh agent
 alias ssha='eval $(ssh-agent) && ssh-add'
 ```
 
@@ -24,7 +24,7 @@ Example:
 
 
 ```
-gej@aten:~/ansible$ ansible all -m apt -a update_cache=true --become --ask-become-pass
+gej@aten:~/ansible$ **ansible all -m apt -a update_cache=true --become --ask-become-passi**
 BECOME password: 
 [ERROR]: Task failed: Timeout (12s) waiting for privilege escalation prompt:
 Origin: <adhoc 'apt' task>
