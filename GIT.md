@@ -12,12 +12,20 @@ git config --global --edit
 import current ssh key into github
 
 ## check files
+```
 git status
-
+```
 
 ## edit files and comment the update
+```
 git add filename_of_file
+```
+Of:
+```
 git commit -m "changed files"
+```
 
 ## upload files
+```
 git push origin main
+```
